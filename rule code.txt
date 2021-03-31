@@ -1,0 +1,258 @@
+構築仕様
+・テーマ名はサイトに合わせて変更
+・style.css
+    テーマネーム部分をサイトに合わせて変更
+・php
+    ・記述方法
+    head内にhead.phpをインクルード
+・css
+    ・ブレイクポイントは768px-767px
+    PCが@media only screen and (min-width: 768px)
+    SPが@media only screen and (max-width: 767px)
+    PC、SPで表示が異なる場合は以下、2つのクラスの付与で表示切り替えを行う
+    .pc_none　PC時非表示
+    .sp_none　SP時非表示
+    以下のcssはadmin.cssに記載済みとなります。
+    /*PC用CSS(ipad mini 7.9インチ対応)*/
+    @media only screen and (min-width: 768px) {
+        .pc_none{
+        display: none!important;
+        }
+    }
+    /*SP用CSS(ipad mini 7.9インチ未対応)*/
+    @media only screen and (max-width: 767px) {
+        .sp_none{
+            display: none!important;
+        }
+    }
+    ・PCのcss
+        fontsizeはxdのデザイン通りのpxで指定
+    ・SPのcss
+        全体の横幅レイアウトは%を使用して整形
+        fontsizeはxdのデザイン通りのpxで指定
+        i5系画面幅320pxまで対応させる事、文章以外の段落ちは認めない
+    ・格納方法
+        cssフォルダ内に格納しフォルダ内は
+        ・reset.css 基本変更しない
+        ・admin.css header,footer,を含む共通インクルード部分のcss
+        ※admin.cssの中にfont familyをセットしてあります
+        サイトの全体のベースとなるフォントを指定し、使用しないフォントはコメントアウトで対応する事、
+        例外でベースとして指定したもの以外のフォントの場合は.font-g .font-mのクラス付与で対応する事
+        
+        ・各ページ名.css 各ページそれぞれのcss
+        ※例 about.phpとabout.cssがセット
+・imgはimgフォルダ内に格納
+    内容は
+    ・common.css header,footer,を含む共通インクルード部分のimg
+    ・各ページ名のフォルダ 各ページで使用するimg
+    ※例 aboutページのimgはaboutフォルダ内に格納
+    ・XDの画像を書き出す際は全て２倍で書き出す
+    ・ファイル名のルールはPCとSPで画像が切り替わる場合はPCで使用したファイル名の後ろに_spを追加 ※logo01.pngはlogo01_sp.png
+・js
+    スライド系はslickを使用してください
+・wpについて
+    wpのバージョンは最新を使用
+    使用プラグインについて
+    ・WP BASIC Auth -デフォルト使用
+    オルグロー用アカウント
+    id : dev-account
+    pass : An2Cz3hB
+    ・All-in-One WP Migration -デフォルト使用 Basic認証
+    ・All-in-One WP Migration Unlimited Extension
+    ・Classic Editor -デフォルト使用
+    ・WP Multibyte Patch -デフォルト使用 日本語ファイル名を自動変換
+    ・Yoast Duplicate Post -デフォルト使用 投稿の複製
+    ・WP-PageNavi -ページネーション使用時
+    ・Intuitive Custom Post Order -デフォルト使用 投稿の順番入れ替え
+    ・Google XML Sitemaps -開発環境時は無効化状態
+    ・Custom Post Type UI -場合による カスタム投稿
+    ・Advanced Custom Fields -場合による カスタムフィールド
+    ・Advanced Custom Fields PRO -有料版はクライアントが保守の対象の場合による
+    ※保守に入らない場合はクライアント用にアカウントを取得する必要があります。
+    ・Advanced Custom Fields: Image Aspect Ratio Crop -場合による
+    ・Contact Form 7 -デフォルト使用 フォーム設置時
+
+
+
+Construction specifications
+・ Theme name is changed according to the site
+・ Style.css
+    Change the theme name part according to the site
+・ Php
+    ・ Description method
+    Include head.php in head
+・ Css
+    ・ Breakpoint is 768px-767px
+    PC is @media only screen and (min-width: 768px)
+    SP is @media only screen and (max-width: 767px)
+    If the display differs between PC and SP, switch the display by assigning the following two classes.
+    .pc_none Not displayed on PC
+    .sp_none Not displayed at SP
+    The following css is already described in admin.css.
+    / * CSS for PC (ipad mini 7.9 inch compatible) * /
+    @media only screen and (min-width: 768px) {
+        .pc_none {
+        display: none! important;
+        }
+    }
+    / * CSS for SP (ipad mini 7.9 inch not supported) * /
+    @media only screen and (max-width: 767px) {
+        .sp_none {
+            display: none! important;
+        }
+    }
+    ・ PC css
+        fontsize is specified by px as designed by xd
+    ・ SP css
+        Overall width layout is formatted using%
+        fontsize is specified by px as designed by xd
+        Support up to 320px screen width of i5 system, no step drop other than sentences is allowed
+    ・ Storage method
+        Stored in the css folder and inside the folder
+        ・ Reset.css Basically do not change
+        -Css of common include part including admin.css header, footer,
+        * Font family is set in admin.css
+        Specify the font that is the base of the entire site, and comment out the fonts that you do not use.
+        In case of font other than the one specified as the base in the exception, it should be handled by assigning the class of .font-g .font-m.
+        
+        ・ Each page name.css Each page css
+        * Example about.php and about.css are set
+・ Img is stored in the img folder
+    Contents
+    ・ Img of common include part including common.css header, footer,
+    -Folder with each page name img used on each page
+    * Example The img of the about page is stored in the about folder.
+    ・ When exporting XD images, export all at double
+    -The file name rule is to add _sp after the file name used on the PC when the image is switched between PC and SP * logo01.png is logo01_sp.png
+・ Js
+    Please use slick for slide system
+・ About wp
+    Use the latest version of wp
+    About the plug-in used
+    · WP BASIC Auth-use default
+    Orglow account
+    id: dev-account
+    pass: An2Cz3hB
+    · All-in-One WP Migration-Default use Basic authentication
+    ・ All-in-One WP Migration Unlimited Extension
+    · Classic Editor-Use default
+    -WP Multibyte Patch-Default use Automatic conversion of Japanese file names
+    -Yoast Duplicate Post-Default use Duplicate post
+    ・ WP-PageNavi-When using page nation
+    -Intuitive Custom Post Order-Use default Change the order of posts
+    -Google XML Sitemaps-Disabled during development environment
+    · Custom Post Type UI-In some cases his custom post
+    · Advanced Custom Fields-In some cases his custom fields
+    · Advanced Custom Fields PRO-Paid version depends on client being subject to maintenance
+    * If you do not enter maintenance, you need to get an account for the client.
+    · Advanced Custom Fields: Image Aspect Ratio Crop-Depending
+    ・ Contact Form 7-When the default form is installed
+
+
+
+Rule code
+Tên theme được thay đổi theo trang web
+*style.css
+	- note theo theme của web
+*php
+	__Description method
+	__ Include head.php vào head
+*Css
+	+Breakpoint tại 768px-767px
+	+PC responsive => @media only screen and (min-width: 768px)
+	+SP responsive => @media only screen and (max-width: 767px)
+	+Nếu show ở PC nhưng ẩn ở SP (hoặc ngược lại) => xài 2 class: 
+		.pc_none Không hiển thị trên PC
+    		.sp_none Không hiển thị tại SP
+		demo:
+			 / * CSS for PC (ipad mini 7.9 inch compatible) * /
+    				@media only screen and (min-width: 768px) {
+        .pc_none {
+        display: none! important;
+        }
+    }
+    / * CSS for SP (ipad mini 7.9 inch not supported) * /
+    @media only screen and (max-width: 767px) {
+        .sp_none {
+            display: none! important;
+        }
+    }
+*PC css
+	- fontsize = design(px) => sử dụng rem (10px = 1rem)
+*SP css
+	- max-width = %
+	- fontsize = design(px)
+	- hỗ trợ từ màn 320px(iphone5). < 320px không hỗ trợ
+* Lưu trữ (Storage method)
+	*css
+		- được lưu tại file css
+		- reset.css cơ bản không cẩn thay đổi
+		- css dùng chung gồm admin.css, header, footer
+		- font family xét ở admin.css
+		- sử dụng đúng font chữ của design và comment lại những không không sử dụng
+		- trường hợp sử dụng những font đặc biết tại một số trường hợp đặc biệt, phải được gán class ( .font-g và .font-m)
+		- Quy tắc đặt tên file css tên page.css cho mỗi trang css tương ứng vd: about.php => about.css
+	*img
+		- hình được lưu tại file img
+		- hình chung bao gồm (commom.css), header, footer
+		- quy tắc đặt tên: file hình phải cùng tên với page vd: img/about => about.php
+		- khi xuất hình XD phải xuất tất cả cùng lúc
+		- Quy tắc đặt tên khi từ PC về SP là thêm _sp vd logo.png => logo_sp.png
+*js
+	- sử dụng slick để làm slide
+*wordpress
+	- sử dụng version mới mất
+	+ plus-in được sử dụng
+		- WP BASIC Auth-use default
+	+ Orglow account
+   		 id: dev-account
+    		 pass: An2Cz3hB
+
+
+
+
+
+
+
+
+
+
+https://docs.google.com/document/d/1S2okR-RaH9FSi4PZZZIQXsaf_88W0s6wzzdaMWvN2_k/edit
+https://docs.google.com/document/d/1qmQ4S839npC-whkb1O6M-947jRNRxqkZY7WI9jK0cG8/edit#heading=h.bhnv55n8w1aw
+https://www.hostinger.vn/huong-dan/toan-tap-ve-wp-hierarchy-cau-truc-giao-dien-wordpress#Gioi-thieu-ve-Template-Files-Va-no-lien-quan-den-WordPress-Themes-the-nao
+https://www.youtube.com/watch?v=XBmjW2aqBFk&t=178s
+https://www.youtube.com/watch?v=FN5jhyspVXc
+
+
+    <?php
+        $args = array(
+            'post_type' => 'info',
+            'offset' => '0',
+            'posts_per_page' => '9999',
+          );
+          $querys = get_posts( $args );
+echo "<pre>";
+echo var_dump($querys);
+echo "</pre>";
+    ?>
+
+mfurnigoxdlemtsq
+
+Minhhoang!7!ogg
+
+Server information:
+IP: 103.77.160.168
+Port: 22
+User: aglstaff
+Password: pdp6=v#@fxs`W]Gz
+path: /domains/staff.agl-tool.com/public_html/vuminhhoang/task1
+Cpanel: // Please create a new table here.
+URL : 103.77.160.168:2222
+User: aglstaff
+Password: pdp6=v#@fxs`W]Gz
+Database:
+103.77.160.168/phpmyadmin
+User: aglstaff
+Password: pdp6=v#@fxs`W]Gz
+URL: http://103.77.160.168/~aglstaff/vuminhhoang/task
+	
